@@ -1,22 +1,25 @@
 /* Geral */
 * {
-padding: 0;
-margin: 0;
-font-family: Helvetica, sans-serif;
-color: #333;
-box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Verdana;
+    color: #333;
+    box-sizing: border-box;
 }
 
 body {
     background-image: url(../img/background.img.jpg);
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-attachment: fixed
 }
 
 button {
     background-color: #fdfdfd;
     color: #102f5e;
-    border: 2px solid #102f5e;
+    border: 1px solid #102f5e;
     padding: 0.3rem 0.6rem;
     font-size: 1rem;
     cursor: pointer;
@@ -31,7 +34,7 @@ button:hover {
 }
 
 button:hover > i {
-    columns: #fff;
+    color: #fff;
 }
 
 button i {
@@ -51,8 +54,9 @@ input, select {
 
 /* Task-Check Header */
 .todo-container {
+    width: 90%;
     max-width: 450px;
-    margin: 3rem auto 0;
+    margin: 2rem auto;
     background-color: #fdfdfd;
     padding: 1.5rem;
     border-radius: 15px;
@@ -61,7 +65,7 @@ input, select {
 .todo-container header {
     text-align: center;
     padding: 0 1rem 1rem;
-    border: 1px solid #ccc;
+    border: none;
 }
 
 /* To-do Form */
@@ -85,6 +89,7 @@ display: flex;
 
 #cancel-edit-btn {
     margin-top: 1rem;
+    color: #444;
 }
 
 /* TO-do toolbar */
@@ -114,7 +119,12 @@ display: flex;
 #search input {
     width: 100%;
     display: flex;
-    flex-direction: column;
+}
+
+#filter {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
 }
 
 #filter select{
@@ -148,4 +158,20 @@ display: flex;
     color: #fff;
     text-decoration: line-through;
     font-style: italic;
+}
+
+/* Empilha a busca e o filtro em dispositivos menores */
+@media (max-width: 400px) {
+    #toolbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    /* Faz ambos ocuparem a largura total */
+    #search, #filter {
+        width: 100%; /* Faz ambos ocuparem a largura total */
+        border-right: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
 }
